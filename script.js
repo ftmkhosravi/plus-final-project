@@ -88,17 +88,6 @@ function SetValue(response) {
   );
   icon.setAttribute("alt", `response.data.weather[0].description`);
   getForecast(response.data.coord);
-//   if (temp <= 0) {
-//     img.innerHTML = `<img src="img/wear-jacket.jpg">`;
-//   } else if (temp < 10 && temp > 0) {
-//     img.innerHTML = `<img src="img/fleece.png">`;
-//   } else if (temp < 20 && temp > 11) {
-//     img.innerHTML = `<img src="img/medium-coat.jpg">`;
-//   } else if (temp < 30 && temp > 20) {
-//     img.innerHTML = `<img src="img/shirts.jpg">`;
-//   } else {
-//     img.innerHTML = `<img src="img/summer.jpg">`;
-//   }
 }
 
 function GetValue(event) {
@@ -128,14 +117,7 @@ function search(city) {
     axios.get(apiUrl).then(SetValue);
   }
 
-function showFahrenheitTemperature(event) {
-  event.preventDefault();
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  let temp = document.querySelector("#temperature");
-  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-  temp.innerHTML = Math.round(fahrenheitTemperature);
-}
+
 
 function showCelsiusTemperature(event) {
   event.preventDefault();
@@ -145,15 +127,13 @@ function showCelsiusTemperature(event) {
   temp.innerHTML = Math.round(celsiusTemperature);
 }
 
-let celsiusTemperature = null;
 
 let searchBtn = document.querySelector("#btn");
 let currentBtn = document.querySelector("#current");
 searchBtn.addEventListener("click", GetValue);
 currentBtn.addEventListener("click", ShowCurrentLocation);
 
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
+
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", showCelsiusTemperature);
