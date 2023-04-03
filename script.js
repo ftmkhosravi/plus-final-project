@@ -31,7 +31,6 @@ function formatDay(timestamp) {
 function displayDailyForecastWeather(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector(".weather-forecast");
-  // let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
   let forecastHtml = `<div class="row">`;
   forecast.forEach((forecastDay, index) => {
     if (index < 6) {
@@ -71,7 +70,6 @@ function SetValue(response) {
    let description = document.querySelector("#description");
   let wind = document.querySelector("#wind");
   let humidity = document.querySelector("#humidity");
-//   let img = document.querySelector(".images");
   let dateElement = document.querySelector("#date");
   let icon = document.querySelector("#icon");
 
@@ -118,23 +116,9 @@ function search(city) {
   }
 
 
-
-function showCelsiusTemperature(event) {
-  event.preventDefault();
-  fahrenheitLink.classList.remove("active");
-  celsiusLink.classList.add("active");
-  let temp = document.querySelector("#temperature");
-  temp.innerHTML = Math.round(celsiusTemperature);
-}
-
-
 let searchBtn = document.querySelector("#btn");
 let currentBtn = document.querySelector("#current");
 searchBtn.addEventListener("click", GetValue);
 currentBtn.addEventListener("click", ShowCurrentLocation);
 
-
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", showCelsiusTemperature);
 search("New York");
